@@ -147,8 +147,8 @@ mail.HTMLBody = f'''
 	</tr>
 	<tr>
 		<td>Faturamento</td>
-		<td style="text-align: center">{faturamento_dia:.2f}</td>
-		<td style="text-align: center">{meta_faturamento_dia:.2f}</td>
+		<td style="text-align: center">R${faturamento_dia:.2f}</td>
+		<td style="text-align: center">R${meta_faturamento_dia:.2f}</td>
 		<td style="text-align: center"><font color="{cor_fat_dia}">◙</font></td>
 	</tr>
 	<tr>
@@ -159,8 +159,8 @@ mail.HTMLBody = f'''
 	</tr>
 	<tr>
 		<td>Ticket Médio</td>
-		<td style="text-align: center">{ticket_medio_dia:.2f}</td>
-		<td style="text-align: center">{meta_ticketmedio_dia:.2f}</td>
+		<td style="text-align: center">R${ticket_medio_dia:.2f}</td>
+		<td style="text-align: center">R${meta_ticketmedio_dia:.2f}</td>
 		<td style="text-align: center"><font color="{cor_ticket_dia}">◙</font></td>
 	</tr>
 </table>
@@ -174,8 +174,8 @@ mail.HTMLBody = f'''
 	</tr>
 	<tr>
 		<td>Faturamento</td>
-		<td style="text-align: center">{faturamento_ano:.2f}</td>
-		<td style="text-align: center">{meta_faturamento_ano:.2f}</td>
+		<td style="text-align: center">R${faturamento_ano:.2f}</td>
+		<td style="text-align: center">R${meta_faturamento_ano:.2f}</td>
 		<td style="text-align: center"><font color="{cor_fat_ano}">◙</font></td>
 	</tr>
 	<tr>
@@ -186,8 +186,8 @@ mail.HTMLBody = f'''
 	</tr>
 	<tr>
 		<td>Ticket Médio</td>
-		<td style="text-align: center">{ticket_medio_ano:.2f}</td>
-		<td style="text-align: center">{meta_ticketmedio_ano:.2f}</td>
+		<td style="text-align: center">R${ticket_medio_ano:.2f}</td>
+		<td style="text-align: center">R${meta_ticketmedio_ano:.2f}</td>
 		<td style="text-align: center"><font color="{cor_ticket_ano}">◙</font></td>
 	</tr>
 </table>
