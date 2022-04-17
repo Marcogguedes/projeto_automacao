@@ -1,6 +1,6 @@
 # Primeira Etapa - Importar Arquivos e Bibliotecas
 
-# Importando Bibliotecas
+# Importando as Bibliotecas
 import pandas as pd 
 import os
 import pathlib
@@ -101,7 +101,104 @@ mail = outlook.CreateItem(0)
 mail.To = emails.loc[emails['Loja']==loja, 'E-mail'].values[0] # Pegando apenas o índice do valor da tabela
 mail.Subject = 'OnePage Dia {}/{} - Loja {}'.format(dia_indicador.day, dia_indicador.month, loja) 
 #mail.Subject = f'OnePage Dia {dia_indicado.day/dia_indicador.month} - Loja {loja]'
-mail.Body = 
+#mail.Body = 'Texto do e mail'
+
+if faturamento_dia >= meta_faturamento_dia:
+	cor_fat_dia = 'green'
+else:
+	cor_fat_dia = 'red'
+
+if faturamento_ano >= meta_faturamento_ano:
+	cor_fat_ano = 'green'
+else:
+	cor_fat_ano = 'red'
+
+if qtde_produtos_dia >= meta_qtdeprodutos_dia:
+	cor_qtde_dia = 'green'
+else:
+	cor_qtde_dia = 'red'
+
+if qtde_produtos_ano >= meta_qtdeprodutos_ano:
+	cor_qtde_ano = 'green'
+else:
+	cor_qtde_ano = 'red'
+
+if ticket_medio_dia >= meta_ticketmedio_dia:
+	cor_ticket_dia 'green'
+else:
+	cor_ticket_dia = 'red'
+
+if ticket_medio_ano >= meta_ticketmedio_ano:
+	cor_ticket_ano = 'green'
+else:
+	cor_ticket_ano = 'red'
+
+mail.HTMLBody = f''' 
+<p>Bom dia, {nome}</p>
+
+<p>O Resultado de ontem <strong>({dia_indicador.day}/{dia_indicador.month})</strong> da <strong>Loja {loja}</strong> foi:</p>
+
+<table>
+	<tr>
+		<th>Indicador</th>
+		<th>Valor Dia</th>
+		<th>Meta Dia</th>
+		<Cenário Dia</th>
+	</tr>
+	<tr>
+		<td>Faturamento</td>
+		<td style="text-align: center">{faturamento_dia:.2f}</td>
+		<td style="text-align: center">{meta_faturamento_dia:.2f}</td>
+		<td style="text-align: center"><font color="{cor_fat_dia}">◙</font></td>
+	</tr>
+	<tr>
+		<td>Diversidade de Produtos</td>
+		<td style="text-align: center">{qtde_produtos_dia}</td>
+		<td style="text-align: center">{meta_qtdeprodutos_dia}</td>
+		<td style="text-align: center"><font color="{cor_qtde_dia}">◙</font></td>
+	</tr>
+	<tr>
+		<td>Ticket Médio</td>
+		<td style="text-align: center">{ticket_medio_dia:.2f}</td>
+		<td style="text-align: center">{meta_ticketmedio_dia:.2f}</td>
+		<td style="text-align: center"><font color="{cor_ticket_dia}">◙</font></td>
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+		<th>Indicador</th>
+		<th>Valor Ano</th>
+		<th>Meta Ano</th>
+		<Cenário Ano</th>
+	</tr>
+	<tr>
+		<td>Faturamento</td>
+		<td style="text-align: center">{faturamento_ano:.2f}</td>
+		<td style="text-align: center">{meta_faturamento_ano:.2f}</td>
+		<td style="text-align: center"><font color="{cor_fat_ano}">◙</font></td>
+	</tr>
+	<tr>
+		<td>Diversidade de Produtos</td>
+		<td style="text-align: center">{qtde_produtos_ano}</td>
+		<td style="text-align: center">{meta_qtdeprodutos_ano}</td>
+		<td style="text-align: center"><font color="{cor_qtde_ano}">◙</font></td>
+	</tr>
+	<tr>
+		<td>Ticket Médio</td>
+		<td style="text-align: center">{ticket_medio_ano:.2f}</td>
+		<td style="text-align: center">{meta_ticketmedio_ano:.2f}</td>
+		<td style="text-align: center"><font color="{cor_ticket_ano}">◙</font></td>
+	</tr>
+</table>
+
+<p>Segue em anexo a planilha com todos os dados para mais detalhes.</p>
+
+<p>Qualquer dúvida estou à disposição.</p>
+<p>Atenciosamente, Marco</p>
+'''
+
+
 
 # Anexos
 attachment = pathlib.Path.cwd() / caminho_backup / loja / f'{dia_indicador.month}_{dia_indicador.day}_{loja}.xlsx'
